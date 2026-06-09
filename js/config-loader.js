@@ -42,6 +42,9 @@ async function loadConfig() {
     Object.assign(CAT_BASE_PRICE, data.catPrecios);
     Object.assign(MENUS, data.menus);
 
+    /* ── Variable global WA usada por sendWA() en app.js ── */
+    window.WA = data.wa;
+
     /* ── Aplicar colores CSS ── */
     const root = document.documentElement;
     root.style.setProperty('--naranja',  CONFIG.colorPrimario);

@@ -4,8 +4,8 @@
   "emoji": "🍱",
   "tagline": "Almuerzos frescos, saludables y deliciosos. Lunes a viernes en tu trabajo o domicilio.",
   "descripcion": "Almuerzos saludables a domicilio o tu trabajo",
-  "telefono": "+51999999999",
-  "wa": "51999999999",
+  "telefono": "+57 324 4129687",
+  "wa": "573244129687",
   "email": "hola@lasdeliciasdeross.com",
   "horario": "Lun–Vie · 10 AM – 2 PM",
   "colorPrimario": "#FF6B35",
@@ -25,7 +25,9 @@
           "id": "l-p1",
           "name": "Pollo a la plancha",
           "desc": "Pechuga jugosa con hierbas finas y limón",
-          "tags": ["Alto proteína"],
+          "tags": [
+            "Alto proteína"
+          ],
           "img": "https://images.unsplash.com/photo-1598103442097-8b74394b95c3?w=200&q=70",
           "price": 0
         },
@@ -33,7 +35,9 @@
           "id": "l-p2",
           "name": "Pescado al vapor",
           "desc": "Filete de pescado blanco con especias naturales",
-          "tags": ["Sin gluten"],
+          "tags": [
+            "Sin gluten"
+          ],
           "img": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=200&q=70",
           "price": 0
         },
@@ -41,29 +45,96 @@
           "id": "l-p3",
           "name": "Pavo horneado",
           "desc": "Pechuga de pavo con verduras al horno",
-          "tags": ["Proteico"],
+          "tags": [
+            "Proteico"
+          ],
           "img": "https://images.unsplash.com/photo-1574484284002-952d92456975?w=200&q=70",
           "price": 0
         }
       ],
       "contornos": [
-        { "id": "l-c1", "name": "Arroz integral",     "icon": "🍚", "price": 0 },
-        { "id": "l-c2", "name": "Ensalada verde",     "icon": "🥗", "price": 0 },
-        { "id": "l-c3", "name": "Verduras al vapor",  "icon": "🥦", "price": 0 },
-        { "id": "l-c4", "name": "Quinua",             "icon": "🫘", "price": 1 },
-        { "id": "l-c0", "name": "Sin contorno",       "icon": "—",  "price": 0 }
+        {
+          "id": "l-c1",
+          "name": "Arroz integral",
+          "icon": "🍚",
+          "price": 0
+        },
+        {
+          "id": "l-c2",
+          "name": "Ensalada verde",
+          "icon": "🥗",
+          "price": 0
+        },
+        {
+          "id": "l-c3",
+          "name": "Verduras al vapor",
+          "icon": "🥦",
+          "price": 0
+        },
+        {
+          "id": "l-c4",
+          "name": "Quinua",
+          "icon": "🫘",
+          "price": 1
+        },
+        {
+          "id": "l-c0",
+          "name": "Sin contorno",
+          "icon": "—",
+          "price": 0
+        }
       ],
       "jugos": [
-        { "id": "l-j1", "name": "Maracuyá natural",   "icon": "🍋",    "price": 0 },
-        { "id": "l-j2", "name": "Limonada",           "icon": "🍋‍🟩", "price": 0 },
-        { "id": "l-j3", "name": "Agua saborizada",    "icon": "💧",    "price": 0 },
-        { "id": "l-j4", "name": "Jugo de naranja",    "icon": "🍊",    "price": 0 },
-        { "id": "l-j0", "name": "Sin bebida",         "icon": "—",     "price": 0 }
+        {
+          "id": "l-j1",
+          "name": "Maracuyá natural",
+          "icon": "🍋",
+          "price": 0
+        },
+        {
+          "id": "l-j2",
+          "name": "Limonada",
+          "icon": "🍋‍🟩",
+          "price": 0
+        },
+        {
+          "id": "l-j3",
+          "name": "Agua saborizada",
+          "icon": "💧",
+          "price": 0
+        },
+        {
+          "id": "l-j4",
+          "name": "Jugo de naranja",
+          "icon": "🍊",
+          "price": 0
+        },
+        {
+          "id": "l-j0",
+          "name": "Sin bebida",
+          "icon": "—",
+          "price": 0
+        }
       ],
       "postres": [
-        { "id": "l-pos1", "name": "Fruta del día",   "icon": "🍉", "price": 0 },
-        { "id": "l-pos2", "name": "Yogurt natural",  "icon": "🥛", "price": 0 },
-        { "id": "l-pos3", "name": "Sin postre",      "icon": "—",  "price": 0 }
+        {
+          "id": "l-pos1",
+          "name": "Fruta del día",
+          "icon": "🍉",
+          "price": 0
+        },
+        {
+          "id": "l-pos2",
+          "name": "Yogurt natural",
+          "icon": "🥛",
+          "price": 0
+        },
+        {
+          "id": "l-pos3",
+          "name": "Sin postre",
+          "icon": "—",
+          "price": 0
+        }
       ]
     },
     "dieta": {
@@ -72,7 +143,9 @@
           "id": "d-p1",
           "name": "Pollo guisado",
           "desc": "Pollo en salsa de tomate natural con verduras",
-          "tags": ["Balanceado"],
+          "tags": [
+            "Balanceado"
+          ],
           "img": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=200&q=70",
           "price": 0
         },
@@ -80,7 +153,9 @@
           "id": "d-p2",
           "name": "Lentejas guisadas",
           "desc": "Lentejas con zanahoria, papa y especias",
-          "tags": ["Vegetal"],
+          "tags": [
+            "Vegetal"
+          ],
           "img": "https://images.unsplash.com/photo-1547592180-85f173990554?w=200&q=70",
           "price": 0
         },
@@ -88,29 +163,96 @@
           "id": "d-p3",
           "name": "Res a la criolla",
           "desc": "Carne magra con sofrito suave",
-          "tags": ["Sabroso"],
+          "tags": [
+            "Sabroso"
+          ],
           "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&q=70",
           "price": 0
         }
       ],
       "contornos": [
-        { "id": "d-c1", "name": "Arroz blanco",     "icon": "🍚", "price": 0 },
-        { "id": "d-c2", "name": "Papa sancochada",  "icon": "🥔", "price": 0 },
-        { "id": "d-c3", "name": "Menestra",         "icon": "🫘", "price": 0 },
-        { "id": "d-c4", "name": "Puré light",       "icon": "🫙", "price": 1 },
-        { "id": "d-c0", "name": "Sin contorno",     "icon": "—",  "price": 0 }
+        {
+          "id": "d-c1",
+          "name": "Arroz blanco",
+          "icon": "🍚",
+          "price": 0
+        },
+        {
+          "id": "d-c2",
+          "name": "Papa sancochada",
+          "icon": "🥔",
+          "price": 0
+        },
+        {
+          "id": "d-c3",
+          "name": "Menestra",
+          "icon": "🫘",
+          "price": 0
+        },
+        {
+          "id": "d-c4",
+          "name": "Puré light",
+          "icon": "🫙",
+          "price": 1
+        },
+        {
+          "id": "d-c0",
+          "name": "Sin contorno",
+          "icon": "—",
+          "price": 0
+        }
       ],
       "jugos": [
-        { "id": "d-j1", "name": "Refresco de piña",        "icon": "🍍",    "price": 0 },
-        { "id": "d-j2", "name": "Chicha morada",           "icon": "🍇",    "price": 0 },
-        { "id": "d-j3", "name": "Limonada con jengibre",   "icon": "🍋‍🟩", "price": 0 },
-        { "id": "d-j4", "name": "Emoliente",               "icon": "🌿",    "price": 0 },
-        { "id": "d-j0", "name": "Sin bebida",              "icon": "—",     "price": 0 }
+        {
+          "id": "d-j1",
+          "name": "Refresco de piña",
+          "icon": "🍍",
+          "price": 0
+        },
+        {
+          "id": "d-j2",
+          "name": "Chicha morada",
+          "icon": "🍇",
+          "price": 0
+        },
+        {
+          "id": "d-j3",
+          "name": "Limonada con jengibre",
+          "icon": "🍋‍🟩",
+          "price": 0
+        },
+        {
+          "id": "d-j4",
+          "name": "Emoliente",
+          "icon": "🌿",
+          "price": 0
+        },
+        {
+          "id": "d-j0",
+          "name": "Sin bebida",
+          "icon": "—",
+          "price": 0
+        }
       ],
       "postres": [
-        { "id": "d-pos1", "name": "Mazamorra light",  "icon": "🍮", "price": 0 },
-        { "id": "d-pos2", "name": "Arroz con leche",  "icon": "🍚", "price": 0 },
-        { "id": "d-pos3", "name": "Sin postre",       "icon": "—",  "price": 0 }
+        {
+          "id": "d-pos1",
+          "name": "Mazamorra light",
+          "icon": "🍮",
+          "price": 0
+        },
+        {
+          "id": "d-pos2",
+          "name": "Arroz con leche",
+          "icon": "🍚",
+          "price": 0
+        },
+        {
+          "id": "d-pos3",
+          "name": "Sin postre",
+          "icon": "—",
+          "price": 0
+        }
       ]
     },
     "proteina": {
@@ -119,7 +261,9 @@
           "id": "p-p1",
           "name": "Lomo saltado",
           "desc": "Lomo de res con verduras y arroz",
-          "tags": ["Energético"],
+          "tags": [
+            "Energético"
+          ],
           "img": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=200&q=70",
           "price": 2
         },
@@ -127,7 +271,9 @@
           "id": "p-p2",
           "name": "Pechuga rellena",
           "desc": "Pechuga con queso y espinaca",
-          "tags": ["Gourmet"],
+          "tags": [
+            "Gourmet"
+          ],
           "img": "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=200&q=70",
           "price": 1
         },
@@ -135,29 +281,96 @@
           "id": "p-p3",
           "name": "Salmón",
           "desc": "Filete de salmón con limón y alcaparras",
-          "tags": ["Premium"],
+          "tags": [
+            "Premium"
+          ],
           "img": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=200&q=70",
           "price": 3
         }
       ],
       "contornos": [
-        { "id": "p-c1", "name": "Arroz con brócoli", "icon": "🍚", "price": 0 },
-        { "id": "p-c2", "name": "Camote sancochado", "icon": "🍠", "price": 0 },
-        { "id": "p-c3", "name": "Garbanzos",         "icon": "🫘", "price": 0 },
-        { "id": "p-c4", "name": "Pasta integral",    "icon": "🍝", "price": 1 },
-        { "id": "p-c0", "name": "Sin contorno",      "icon": "—",  "price": 0 }
+        {
+          "id": "p-c1",
+          "name": "Arroz con brócoli",
+          "icon": "🍚",
+          "price": 0
+        },
+        {
+          "id": "p-c2",
+          "name": "Camote sancochado",
+          "icon": "🍠",
+          "price": 0
+        },
+        {
+          "id": "p-c3",
+          "name": "Garbanzos",
+          "icon": "🫘",
+          "price": 0
+        },
+        {
+          "id": "p-c4",
+          "name": "Pasta integral",
+          "icon": "🍝",
+          "price": 1
+        },
+        {
+          "id": "p-c0",
+          "name": "Sin contorno",
+          "icon": "—",
+          "price": 0
+        }
       ],
       "jugos": [
-        { "id": "p-j1", "name": "Batido de plátano",   "icon": "🍌", "price": 1 },
-        { "id": "p-j2", "name": "Jugo verde",          "icon": "🥦", "price": 0 },
-        { "id": "p-j3", "name": "Agua con limón",      "icon": "💧", "price": 0 },
-        { "id": "p-j4", "name": "Emoliente proteico",  "icon": "🌿", "price": 0 },
-        { "id": "p-j0", "name": "Sin bebida",          "icon": "—",  "price": 0 }
+        {
+          "id": "p-j1",
+          "name": "Batido de plátano",
+          "icon": "🍌",
+          "price": 1
+        },
+        {
+          "id": "p-j2",
+          "name": "Jugo verde",
+          "icon": "🥦",
+          "price": 0
+        },
+        {
+          "id": "p-j3",
+          "name": "Agua con limón",
+          "icon": "💧",
+          "price": 0
+        },
+        {
+          "id": "p-j4",
+          "name": "Emoliente proteico",
+          "icon": "🌿",
+          "price": 0
+        },
+        {
+          "id": "p-j0",
+          "name": "Sin bebida",
+          "icon": "—",
+          "price": 0
+        }
       ],
       "postres": [
-        { "id": "p-pos1", "name": "Brownie proteico",    "icon": "🍫", "price": 2 },
-        { "id": "p-pos2", "name": "Fruta con semillas",  "icon": "🍓", "price": 0 },
-        { "id": "p-pos3", "name": "Sin postre",          "icon": "—",  "price": 0 }
+        {
+          "id": "p-pos1",
+          "name": "Brownie proteico",
+          "icon": "🍫",
+          "price": 2
+        },
+        {
+          "id": "p-pos2",
+          "name": "Fruta con semillas",
+          "icon": "🍓",
+          "price": 0
+        },
+        {
+          "id": "p-pos3",
+          "name": "Sin postre",
+          "icon": "—",
+          "price": 0
+        }
       ]
     }
   }
