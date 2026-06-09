@@ -1,4 +1,435 @@
-htmlsddddddd 
- dssd
-d
-s
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cargando...</title>
+<meta name="description" content="Almuerzos deliciosos a domicilio o a tu trabajo.">
+<meta name="theme-color" content="#FF6B35">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Mi Menú">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍱</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23FF6B35'/><text y='.85em' font-size='72' x='14'>🍱</text></svg>">
+<link rel="manifest" id="pwa-manifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">🍱 Las Delicias <span class="logo-em">de Ross</span></a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="openPedidoSheet();return false;">Pedir ahora</a></li>
+      <li><a href="#como-funciona">¿Cómo funciona?</a></li>
+    </ul>
+    <button class="nav-cta" onclick="openPedidoSheet()">🛒 Hacer pedido</button>
+    <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mob-close" onclick="closeMobile()">✕</button>
+  <a href="#" onclick="closeMobile();openPedidoSheet();return false;">Pedir ahora</a>
+  <a href="#como-funciona" onclick="closeMobile()">¿Cómo funciona?</a>
+  <a href="#" class="mob-cta" onclick="closeMobile();openPedidoSheet();return false;">🛒 Hacer pedido</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-content rv">
+    <div class="hero-eyebrow">🚀 Delivery a tu trabajo o casa</div>
+    <h1 class="hero-h1">El almuerzo que <em>mereces,</em> sin moverte</h1>
+    <p class="hero-sub">Menús frescos y balanceados entregados donde estés. Elige tu plan, personaliza cada día y recíbelo puntual.</p>
+    <div class="hero-btns">
+      <button class="btn-p" onclick="openPedidoSheet()">🍽️ Haz tu pedido</button>
+      <a href="#como-funciona" class="btn-s">¿Cómo funciona?</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>500+</strong><span>Pedidos por semana</span></div>
+      <div class="hero-stat"><strong>4.9★</strong><span>Calificación promedio</span></div>
+      <div class="hero-stat"><strong>45 min</strong><span>Tiempo de entrega</span></div>
+    </div>
+  </div>
+  <div class="hero-visual rv" style="transition-delay:.15s">
+    <div class="hero-img-wrap">
+      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80" alt="Almuerzo saludable">
+      <div class="hero-float-card">
+        <div class="fc-icon">🎉</div>
+        <div><strong>¡Tu pedido listo!</strong><span>Arroz con pollo + ensalada</span></div>
+      </div>
+      <div class="hero-badge">¡Menú<br>semanal<br>disponible!</div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section class="section" id="como-funciona">
+  <div class="section-inner">
+    <div class="sec-head rv">
+      <div class="sec-tag">Proceso simple</div>
+      <h2 class="sec-h2">En 3 pasos <em>tienes tu almuerzo</em></h2>
+    </div>
+    <div class="feat-grid rv" style="transition-delay:.1s">
+      <div class="feat-item"><div class="feat-icon">🥗</div><div class="feat-title">1. Elige tu categoría</div><p class="feat-desc">Libre de grasa, Dieta balanceada o Full proteína. Cada menú está diseñado según tus objetivos.</p></div>
+      <div class="feat-item"><div class="feat-icon">📅</div><div class="feat-title">2. Selecciona tus días</div><p class="feat-desc">De 1 a 5 días. Elige exactamente qué días de la semana quieres recibir tu almuerzo.</p></div>
+      <div class="feat-item"><div class="feat-icon">🍴</div><div class="feat-title">3. Personaliza cada día</div><p class="feat-desc">Elige plato principal, contorno, jugo y postre para cada día de tu plan.</p></div>
+      <div class="feat-item"><div class="feat-icon">📲</div><div class="feat-title">4. Confirma por WhatsApp</div><p class="feat-desc">Tu pedido llega directo a nuestro WhatsApp con todos los detalles y lo coordinamos contigo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PEDIDO (ancla para nav, el contenido está en el sheet) -->
+<div id="pedido"></div>
+
+<!-- BARRA FIJA INFERIOR -->
+<div class="cta-bar" id="cta-bar">
+  <div class="cta-bar-inner">
+    <div class="cta-bar-text">
+      <div class="cta-bar-label">¿Listo para pedir?</div>
+      <div class="cta-bar-sub">Desde S/13 · Lun–Vie · Delivery incluido</div>
+    </div>
+    <button class="cta-bar-btn" onclick="openPedidoSheet()">
+      🍽️ Haz tu pedido
+    </button>
+  </div>
+</div>
+
+<!-- PEDIDO SHEET — bottom sheet con todo el flujo -->
+<div class="pedido-overlay" id="pedido-overlay" onclick="handlePedidoOverlayClick(event)">
+  <div class="pedido-sheet" id="pedido-sheet" onclick="event.stopPropagation()">
+
+    <!-- Handle visual -->
+    <div class="sheet-handle"></div>
+
+    <!-- Header con pasos y botón cerrar -->
+    <div class="sheet-header" id="sheet-header">
+      <div class="sheet-steps" id="sheet-steps">
+        <button class="sheet-step-btn active" id="sbtn-1" onclick="goStep(1)"><span class="step-num">1</span> Categoría</button>
+        <div class="sheet-step-sep">›</div>
+        <button class="sheet-step-btn" id="sbtn-2" onclick="goStep(2)"><span class="step-num">2</span> Días</button>
+        <div class="sheet-step-sep">›</div>
+        <button class="sheet-step-btn" id="sbtn-3" onclick="goStep(3)"><span class="step-num">3</span> Menú</button>
+      </div>
+      <button class="sheet-close" onclick="closePedidoSheet()">✕</button>
+      <div class="sheet-day-tabs-sticky" id="sheet-day-tabs-sticky" style="display:none">
+        <div class="progress-dias" id="progress-dias"></div>
+        <div class="day-builder-tabs" id="day-builder-tabs"></div>
+      </div>
+    </div>
+
+    <!-- Cuerpo scrolleable -->
+    <div class="sheet-body" id="sheet-body">
+
+      <!-- PASO 1 — Categoría -->
+      <div id="step-1">
+        <div class="sheet-section-title">¿Qué tipo de menú quieres?</div>
+        <div class="cat-grid">
+          <div class="cat-card libre" id="cat-libre" onclick="selectCat('libre')">
+            <div class="cat-left">
+              <div class="cat-emoji">🌿</div>
+              <div class="cat-info">
+                <div class="cat-name">Libre de Grasa</div>
+                <div class="cat-desc">Al vapor, horneado o a la plancha. Sin frituras, ligero y sabroso.</div>
+                <span class="cat-badge">Sin frituras · Bajo en calorías</span>
+              </div>
+            </div>
+            <div class="cat-right">
+              <div class="cat-precio">S/13<span class="cat-precio-label"> /día</span></div>
+              <div class="cat-check">✓</div>
+            </div>
+          </div>
+          <div class="cat-card dieta" id="cat-dieta" onclick="selectCat('dieta')">
+            <div class="cat-left">
+              <div class="cat-emoji">⚖️</div>
+              <div class="cat-info">
+                <div class="cat-name">Dieta Balanceada</div>
+                <div class="cat-desc">Porciones controladas, carbohidratos saludables y proteína moderada.</div>
+                <span class="cat-badge">Porciones controladas · Variado</span>
+              </div>
+            </div>
+            <div class="cat-right">
+              <div class="cat-precio">S/15<span class="cat-precio-label"> /día</span></div>
+              <div class="cat-check">✓</div>
+            </div>
+          </div>
+          <div class="cat-card proteina" id="cat-proteina" onclick="selectCat('proteina')">
+            <div class="cat-left">
+              <div class="cat-emoji">💪</div>
+              <div class="cat-info">
+                <div class="cat-name">Full Proteína</div>
+                <div class="cat-desc">Alto contenido proteico para personas activas o que buscan ganar músculo.</div>
+                <span class="cat-badge">Alto en proteína · Para activos</span>
+              </div>
+            </div>
+            <div class="cat-right">
+              <div class="cat-precio">S/20<span class="cat-precio-label"> /día</span></div>
+              <div class="cat-check">✓</div>
+            </div>
+          </div>
+          <div class="cat-card variado" id="cat-variado" onclick="selectCat('variado')">
+            <div class="cat-left">
+              <div class="cat-emoji">🎨</div>
+              <div class="cat-info">
+                <div class="cat-name">Variado</div>
+                <div class="cat-desc">Elige libremente entre todos los platos disponibles sin restricción.</div>
+                <span class="cat-badge">Todos los platos · Sin límites</span>
+              </div>
+            </div>
+            <div class="cat-right">
+              <div class="cat-precio" style="font-size:1rem;">S/13–20<span class="cat-precio-label"><br>según elijas</span></div>
+              <div class="cat-check">✓</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASO 2 — Días -->
+      <div id="step-2" style="display:none">
+
+        <!-- VISTA A: Las 3 tarjetas de plan -->
+        <div id="step-2-planes">
+          <div class="sheet-section-title">¿Cómo quieres tu plan?</div>
+
+          <!-- Tarjeta 1: Plan Semanal -->
+          <div onclick="selectSemanaCompleta()" style="border-radius:var(--r2);padding:20px;cursor:pointer;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--naranja),var(--durazno));border:2px solid transparent;display:flex;align-items:center;justify-content:space-between;gap:14px;transition:box-shadow .3s;box-shadow:0 4px 20px rgba(255,107,53,.25);margin-bottom:12px;">
+            <div style="position:absolute;top:-30px;right:-30px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.13);pointer-events:none;"></div>
+            <div style="position:relative;z-index:1;">
+              <div style="font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:4px;">⭐ MÁS POPULAR</div>
+              <div style="font-family:var(--fd);font-size:1.05rem;font-weight:700;color:#fff;line-height:1.2;">Plan Semanal</div>
+              <div style="font-size:.68rem;color:rgba(255,255,255,.9);margin-top:3px;">Lun–Vie sin preocuparte · 💰 Ahorras S/15</div>
+            </div>
+            <div style="position:relative;z-index:1;text-align:right;flex-shrink:0;">
+              <div style="font-family:var(--fd);font-size:1.6rem;font-weight:900;color:#fff;line-height:1;">S/13</div>
+              <div style="font-size:.62rem;color:rgba(255,255,255,.85);">por día</div>
+            </div>
+          </div>
+
+          <!-- Tarjeta 2: Solo Hoy -->
+          <div onclick="selectSoloHoy()" id="card-solo-hoy" style="border-radius:var(--r2);padding:20px;cursor:pointer;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--verde),var(--verde2));border:2px solid transparent;display:flex;align-items:center;justify-content:space-between;gap:14px;transition:box-shadow .3s;box-shadow:0 4px 20px rgba(91,173,143,.30);margin-bottom:12px;">
+            <div style="position:absolute;top:-30px;right:-30px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.13);pointer-events:none;"></div>
+            <div style="position:relative;z-index:1;">
+              <div style="font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:4px;">⚡ RÁPIDO Y FÁCIL</div>
+              <div style="font-family:var(--fd);font-size:1.05rem;font-weight:700;color:#fff;line-height:1.2;">Solo Hoy</div>
+              <div style="font-size:.68rem;color:rgba(255,255,255,.9);margin-top:3px;" id="hoy-dia-label">Pedido para hoy</div>
+            </div>
+            <div style="position:relative;z-index:1;text-align:right;flex-shrink:0;">
+              <div style="font-family:var(--fd);font-size:1.6rem;font-weight:900;color:#fff;line-height:1;">S/16</div>
+              <div style="font-size:.62rem;color:rgba(255,255,255,.85);">por día</div>
+            </div>
+          </div>
+
+          <!-- Aviso fin de semana (oculto por defecto) -->
+          <div id="hoy-weekend-aviso" style="display:none;background:#F0FDF4;border:1.5px solid #86EFAC;border-top:none;border-radius:0 0 var(--r2) var(--r2);padding:14px 18px;margin-bottom:12px;">
+            <div style="font-size:.78rem;color:#166534;font-weight:600;margin-bottom:10px;">📅 Hoy es <span id="hoy-weekend-dia-actual"></span>, tu pedido se agendará para el <strong>lunes</strong>.</div>
+            <div style="display:flex;gap:8px;">
+              <button onclick="confirmarPedidoLunes()" style="flex:1;padding:9px;border-radius:10px;border:none;background:#16a34a;color:#fff;font-size:.76rem;font-weight:700;cursor:pointer;">✓ Confirmar para el lunes</button>
+              <button onclick="cancelarAvisoHoy()" style="padding:9px 14px;border-radius:10px;border:1.5px solid #86EFAC;background:#fff;color:#166534;font-size:.76rem;font-weight:600;cursor:pointer;">Cancelar</button>
+            </div>
+          </div>
+
+          <!-- Tarjeta 3: Días a elegir -->
+          <div onclick="mostrarSelectorDias()" style="border-radius:var(--r2);padding:20px;cursor:pointer;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--morado),#7c3aed);border:2px solid transparent;display:flex;align-items:center;justify-content:space-between;gap:14px;transition:box-shadow .3s;box-shadow:0 4px 20px rgba(155,114,207,.30);margin-bottom:12px;">
+            <div style="position:absolute;top:-30px;right:-30px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.13);pointer-events:none;"></div>
+            <div style="position:relative;z-index:1;">
+              <div style="font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:4px;">📆 TÚ DECIDES</div>
+              <div style="font-family:var(--fd);font-size:1.05rem;font-weight:700;color:#fff;line-height:1.2;">Días a elegir</div>
+              <div style="font-size:.68rem;color:rgba(255,255,255,.9);margin-top:3px;">Selecciona los días que quieres</div>
+            </div>
+            <div style="position:relative;z-index:1;text-align:right;flex-shrink:0;">
+              <div style="font-family:var(--fd);font-size:1.6rem;font-weight:900;color:#fff;line-height:1;">S/14</div>
+              <div style="font-size:.62rem;color:rgba(255,255,255,.85);">por día</div>
+            </div>
+          </div>
+
+          <div class="step-nav" style="margin-top:16px;">
+            <button class="btn-back" onclick="goStep(1)">← Atrás</button>
+          </div>
+        </div>
+
+        <!-- VISTA B: Selector de días específicos (reemplaza las tarjetas) -->
+        <div id="step-2-selector" style="display:none">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+            <button onclick="volverPlanes()" style="width:34px;height:34px;border-radius:50%;border:1.5px solid var(--borde);background:var(--white);cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;color:var(--txt3);flex-shrink:0;">←</button>
+            <div class="sheet-section-title" style="margin-bottom:0;">¿Qué días quieres?</div>
+          </div>
+          <div class="dias-esp-grid" id="dias-esp-grid" style="gap:10px;display:grid;grid-template-columns:1fr 1fr;"></div>
+          <div class="dias-esp-hint" id="dias-esp-hint" style="margin-top:12px;"></div>
+          <div class="step-nav" style="margin-top:20px;">
+            <button class="btn-back" onclick="volverPlanes()">← Atrás</button>
+            <button class="btn-next" id="btn-next-2" disabled onclick="goStep(3)">Continuar →</button>
+          </div>
+        </div>
+
+        <div class="dias-especificos" id="dias-especificos" style="display:none!important;"></div>
+      </div>
+
+      <!-- PASO 3 — Builder dentro del sheet -->
+      <div id="step-3" style="display:none">
+        <!-- Barra de progreso + precio -->
+        <div id="p3-status-bar" style="background:var(--white);border:1.5px solid var(--borde);border-radius:14px;padding:12px 16px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
+          <div id="p3-progress-text" style="font-size:.76rem;font-weight:600;color:var(--txt2);"></div>
+          <div style="text-align:right;flex-shrink:0;">
+            <div style="font-size:.6rem;color:var(--txt3);">Total estimado</div>
+            <div id="p3-total" style="font-family:var(--fd);font-size:1.05rem;font-weight:700;color:var(--naranja);"></div>
+          </div>
+        </div>
+        <div class="day-builder" id="day-builder"></div>
+        <div class="step-nav" style="margin-top:16px;">
+          <button class="btn-back" onclick="goStep(2)">← Atrás</button>
+          <button class="btn-next" id="btn-ver-resumen" onclick="tryOpenCart()">Ver resumen y pedir 🛒</button>
+        </div>
+      </div>
+
+    </div><!-- /sheet-body -->
+  </div><!-- /pedido-sheet -->
+</div><!-- /pedido-overlay -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div>
+        <span class="foot-logo" id="foot-logo-txt"></span>
+        <p class="foot-tagline" id="foot-tagline-txt"></p>
+        <div class="foot-socials">
+          <a class="foot-social" href="#" target="_blank" rel="noopener">📸</a>
+          <a class="foot-social" href="#" target="_blank" rel="noopener">👍</a>
+          <a class="foot-social" href="#" target="_blank" rel="noopener">💬</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title">Menús</div>
+        <ul>
+          <li><a href="#" onclick="openPedidoSheet();return false;">Libre de grasa</a></li>
+          <li><a href="#" onclick="openPedidoSheet();return false;">Dieta balanceada</a></li>
+          <li><a href="#" onclick="openPedidoSheet();return false;">Full proteína</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title">Contacto</div>
+        <ul>
+          <li><a href="tel:" id="foot-tel"></a></li>
+          <li><a href="mailto:" id="foot-email"></a></li>
+          <li><a href="#" id="foot-horario"></a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="foot-divider">
+    <div class="foot-bottom">
+      <div class="foot-copy" id="foot-copy"></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<!-- COPY HINT -->
+<div class="copy-hint-overlay" id="copy-hint-overlay" onclick="closeCopyHint()">
+  <div class="copy-hint" id="copy-hint" onclick="event.stopPropagation()">
+    <button class="copy-hint-close" onclick="closeCopyHint()">✕</button>
+    <span class="copy-hint-emoji">📋</span>
+    <div class="copy-hint-title">¡Ahorra tiempo!</div>
+    <div class="copy-hint-sub">En los días siguientes verás el botón <strong>📋 Copiar</strong> junto a "Plato principal". Úsalo para aplicar el menú de un día ya configurado con un solo toque.</div>
+    <button class="copy-hint-ok" onclick="closeCopyHint()">¡Entendido!</button>
+  </div>
+</div>
+
+<!-- DIÁLOGO RECUPERAR PEDIDO -->
+<div class="recover-overlay" id="recover-overlay">
+  <div class="recover-dialog">
+    <div class="recover-icon">🍱</div>
+    <div class="recover-title">Tienes un pedido guardado</div>
+    <div class="recover-sub">¿Quieres continuar donde lo dejaste o empezar de cero?</div>
+    <div class="recover-meta" id="recover-meta"></div>
+    <div class="recover-btns">
+      <button class="recover-btn-main" onclick="recoverContinue()">↩ Continuar mi pedido</button>
+      <button class="recover-btn-sec" onclick="recoverReset()">🗑 Empezar de nuevo</button>
+    </div>
+  </div>
+</div>
+
+<!-- BANNER PWA (Android) -->
+<div id="pwa-banner" class="pwa-banner">
+  <div class="pwa-banner-icon">🍱</div>
+  <div class="pwa-banner-body">
+    <div class="pwa-banner-title">Instala la app</div>
+    <div class="pwa-banner-sub">Accede rápido desde tu pantalla de inicio</div>
+  </div>
+  <button id="pwa-install-btn" class="pwa-install-btn">Instalar</button>
+  <button id="pwa-dismiss-btn" class="pwa-dismiss-btn">✕</button>
+</div>
+
+<!-- HINT iOS -->
+<div class="ios-hint-overlay" id="ios-hint-overlay" onclick="closeIosHint()">
+  <div class="ios-hint" onclick="event.stopPropagation()">
+    <button class="ios-hint-close" onclick="closeIosHint()">✕</button>
+    <span class="ios-hint-emoji">📲</span>
+    <div class="ios-hint-title">Instala la app</div>
+    <div class="ios-hint-steps">
+      <div class="ios-step"><span class="ios-step-num">1</span><span>Toca el botón <strong>Compartir</strong> <span class="ios-share-icon">⎙</span> en Safari</span></div>
+      <div class="ios-step"><span class="ios-step-num">2</span><span>Selecciona <strong>"Agregar a pantalla de inicio"</strong></span></div>
+      <div class="ios-step"><span class="ios-step-num">3</span><span>Toca <strong>Agregar</strong> — ¡listo!</span></div>
+    </div>
+    <button class="ios-hint-ok" onclick="closeIosHint()">Entendido</button>
+  </div>
+</div>
+
+<!-- PANEL CARRITO -->
+<div class="cart-overlay" id="cart-overlay" onclick="handleCartClick(event)">
+  <div class="cart-panel" onclick="event.stopPropagation()">
+    <div class="cart-header">
+      <div class="cart-title">Tu pedido 🍱</div>
+      <button class="cart-close" onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-scroll">
+    <div class="cart-form" id="cart-form" style="display:none;padding-bottom:0;border-bottom:1.5px solid var(--borde);margin-bottom:4px;">
+      <div style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px;">¿A dónde te lo enviamos?</div>
+      <div class="cf-group">
+        <label class="cf-label">Tu nombre</label>
+        <input class="cf-input" type="text" id="cf-nombre" placeholder="Ej: María García">
+      </div>
+      <div class="cf-group">
+        <label class="cf-label">Tipo de entrega</label>
+        <div class="tipo-opts">
+          <button class="tipo-btn on" onclick="setTipoEntrega('domicilio',this)">🏠 Domicilio</button>
+          <button class="tipo-btn" onclick="setTipoEntrega('trabajo',this)">🏢 Trabajo</button>
+        </div>
+      </div>
+      <div class="cf-group">
+        <label class="cf-label">Dirección de entrega</label>
+        <input class="cf-input" type="text" id="cf-dir" placeholder="Calle, número, referencia...">
+        <div class="geo-btns" style="margin-top:8px">
+          <button class="btn-geo primary" onclick="usarUbicacion()">📍 Mi ubicación actual</button>
+          <button class="btn-geo" onclick="toggleMapa()">🗺️ Ver en mapa</button>
+        </div>
+        <div id="geo-status"></div>
+        <div class="mapa-wrap" id="mapa-wrap" style="display:none">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+    <div class="cart-body" id="cart-body"></div>
+    <div class="cart-footer" id="cart-footer" style="display:none">
+      <div class="cart-total-row">
+        <div class="cart-total-label">Total estimado</div>
+        <div class="cart-total-val" id="cart-total">S/ 0.00</div>
+      </div>
+      <button class="btn-send" onclick="sendWA()">📲 Confirmar por WhatsApp</button>
+    </div>
+    </div><!-- /cart-scroll -->
+  </div>
+</div>
+
+
+<script src="/js/config-loader.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/pwa.js"></script>
+</body>
+</html>
