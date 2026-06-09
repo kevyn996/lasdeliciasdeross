@@ -1,10 +1,10 @@
 /* ══════════════════════════════════════════════
    APP — Lógica principal
-   Llamado por config-loader.js via initApp()
+   Todas las funciones en scope global.
+   CONFIG, MENUS, CAT_BASE_PRICE vienen de
+   config-loader.js (se cargan antes).
    ══════════════════════════════════════════════ */
 
-function initApp() {
-  const WA = CONFIG.wa;
 
 /* ── ESTADO ── */
 let currentStep = 1;
@@ -995,64 +995,11 @@ document.addEventListener('keydown', e => {
 const io = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});},{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
-/* ── Poblar footer con CONFIG ── */
-(function() {
+
+/* ── initUI — llamado por config-loader después de cargar config.json ── */
+function initUI() {
+  /* Footer logo */
   const $ = id => document.getElementById(id);
-  if ($('foot-logo-txt'))  $('foot-logo-txt').textContent  = CONFIG.emoji + ' ' + CONFIG.nombre;
-  if ($('foot-tagline-txt'))$('foot-tagline-txt').textContent = CONFIG.tagline;
-  if ($('foot-tel'))  { $('foot-tel').href = 'tel:' + CONFIG.telefono; $('foot-tel').textContent = CONFIG.telefono; }
-  if ($('foot-email')){ $('foot-email').href = 'mailto:' + CONFIG.email; $('foot-email').textContent = CONFIG.email; }
-  if ($('foot-horario')) $('foot-horario').textContent = CONFIG.horario;
-  if ($('foot-copy'))  $('foot-copy').textContent = '© ' + CONFIG.año + ' ' + CONFIG.nombre + ' · Todos los derechos reservados';
-})();
-
-/* ── PWA Install Logic ── */
-(function() {
-  const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
-  const isStandalone = window.matchMedia('(display-mode: standalone)').matches
-                    || window.navigator.standalone === true;
-
-  /* Si ya está instalada no mostrar nada */
-  if (isStandalone) return;
-
-  const dismissedKey = 'pwa-dismissed';
-
-  if (isIos) {
-    /* iOS: mostrar hint si no fue descartado antes */
-    if (!sessionStorage.getItem(dismissedKey)) {
-      setTimeout(() => {
-        document.getElementById('ios-hint-overlay')?.classList.add('show');
-      }, 3000);
-    }
-  } else {
-    /* Android / Chrome: esperar beforeinstallprompt */
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', e => {
-      e.preventDefault();
-      deferredPrompt = e;
-      if (!sessionStorage.getItem(dismissedKey)) {
-        document.getElementById('pwa-banner')?.classList.add('visible');
-      }
-    });
-
-    document.getElementById('pwa-install-btn')?.addEventListener('click', async () => {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      deferredPrompt = null;
-      document.getElementById('pwa-banner')?.classList.remove('visible');
-    });
-
-    document.getElementById('pwa-dismiss-btn')?.addEventListener('click', () => {
-      sessionStorage.setItem(dismissedKey, '1');
-      document.getElementById('pwa-banner')?.classList.remove('visible');
-    });
-  }
-})();
-
-function closeIosHint() {
-  sessionStorage.setItem('pwa-dismissed', '1');
-  document.getElementById('ios-hint-overlay')?.classList.remove('show');
+  if ($('foot-logo-txt')) $('foot-logo-txt').textContent = CONFIG.emoji + ' ' + CONFIG.nombre;
+  if ($('foot-tagline-txt')) $('foot-tagline-txt').textContent = CONFIG.tagline;
 }
-
-} // end initApp
