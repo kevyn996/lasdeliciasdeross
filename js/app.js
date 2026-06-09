@@ -382,7 +382,25 @@ function switchDay(idx) {
   activeDayIdx = idx;
   renderDayTabs();
   renderProgressDias();
+
+  /* ── Transición de entrada al nuevo día ── */
+  const builder = document.getElementById('day-builder');
+  if (builder) {
+    builder.style.opacity = '0';
+    builder.style.transform = 'translateY(10px)';
+    builder.style.transition = 'none';
+  }
   renderDayBuilder();
+  if (builder) {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        builder.style.transition = 'opacity .28s ease, transform .28s cubic-bezier(.2,0,.2,1)';
+        builder.style.opacity = '1';
+        builder.style.transform = 'translateY(0)';
+      });
+    });
+  }
+
   scrollTabIntoView(idx);
   setTimeout(() => {
     const sheetBody = document.getElementById('sheet-body');
@@ -550,13 +568,30 @@ function selectItem(dayIdx, tipo, id) {
       }
       const isLastDay = dayIdx >= selectedDayNames.length - 1;
       if (!isLastDay) {
+        /* ── Animación: tab pulse + toast + salto al siguiente día ── */
         setTimeout(() => {
-          switchDay(dayIdx + 1);
+          /* 1. Tab completing pulse */
+          const tabs = document.getElementById('day-builder-tabs');
+          const tabBtn = tabs ? tabs.querySelectorAll('.dbt')[dayIdx] : null;
+          if (tabBtn) tabBtn.classList.add('completing');
+
+          /* 2. Toast "Menú del X completado ✓" */
+          const toast = document.createElement('div');
+          toast.className = 'day-done-toast';
+          toast.textContent = 'Menú del ' + selectedDayNames[dayIdx] + ' completado ✓';
+          document.body.appendChild(toast);
+          setTimeout(() => toast.remove(), 1900);
+
+          /* 3. Saltar al siguiente día después del pulse */
           setTimeout(() => {
-            const sheetBody = document.getElementById('sheet-body');
-            if (sheetBody) sheetBody.scrollTo({ top: 0, behavior: 'smooth' });
-          }, 80);
-        }, 350);
+            if (tabBtn) tabBtn.classList.remove('completing');
+            switchDay(dayIdx + 1);
+            setTimeout(() => {
+              const sheetBody = document.getElementById('sheet-body');
+              if (sheetBody) sheetBody.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 80);
+          }, 800);
+        }, 200);
       } else {
         setTimeout(() => { tryOpenCart(); }, 400);
       }

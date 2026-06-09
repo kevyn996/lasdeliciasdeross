@@ -703,3 +703,9 @@ body { padding-bottom: 76px; }
 }
 .ios-hint-ok:hover{background:var(--naranja2);}
 
+
+/* ── DAY COMPLETE ANIMATION ── */
+.dbt.completing{background:var(--verde)!important;color:#fff!important;border-color:var(--verde)!important;transform:scale(1.12);box-shadow:0 0 0 4px rgba(91,173,143,.25);transition:all .28s cubic-bezier(.34,1.56,.64,1);}
+@keyframes checkDraw{0%{stroke-dashoffset:24}100%{stroke-dashoffset:0}}
+@keyframes dayDoneToast{0%{opacity:0;transform:translateX(-50%) translateY(10px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1;transform:translateX(-50%) translateY(0)}100%{opacity:0;transform:translateX(-50%) translateY(-6px)}}
+.day-done-toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%);background:var(--verde);color:#fff;padding:10px 20px;border-radius:20px;font-size:.78rem;font-weight:700;z-index:9999;pointer-events:none;animation:dayDoneToast 1.8s ease forwards;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,.15);}

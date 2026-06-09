@@ -1,12 +1,23 @@
 {
-  "colorPrimario": "#FF6B35",
-  "horario": "Lun–Vie · 10 AM – 2 PM",
-  "emoji": "🍲",
-  "colorBg": "#FFFBF5",
   "nombre": "Las Delicias de Ross",
-  "wa": "573244129687",
-  "descripcion": "Almuerzos saludables a domicilio o tu trabajo",
+  "nombreCorto": "Delicias de Ross",
+  "emoji": "🍱",
   "tagline": "Almuerzos frescos, saludables y deliciosos. Lunes a viernes en tu trabajo o domicilio.",
+  "descripcion": "Almuerzos saludables a domicilio o tu trabajo",
+  "telefono": "+57 324 4129687",
+  "wa": "573244129687",
+  "email": "hola@lasdeliciasdeross.com",
+  "horario": "Lun–Vie · 10 AM – 2 PM",
+  "colorPrimario": "#FF6B35",
+  "colorBg": "#FFFBF5",
+  "moneda": "S/ ",
+  "año": "2025",
+  "catPrecios": {
+    "libre": 13,
+    "dieta": 15,
+    "proteina": 20,
+    "variado": 0
+  },
   "menus": {
     "libre": {
       "principales": [
@@ -362,16 +373,5 @@
         }
       ]
     }
-  },
-  "telefono": "+57 324 4129687",
-  "moneda": "S/ ",
-  "catPrecios": {
-    "libre": 13,
-    "dieta": 15,
-    "proteina": 20,
-    "variado": 0
-  },
-  "nombreCorto": "Delicias de Ross",
-  "email": "hola@lasdeliciasdeross.com",
-  "año": "2026"
+  }
 }
