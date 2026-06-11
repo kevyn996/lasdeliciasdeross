@@ -12,7 +12,7 @@ var CAT_BASE_PRICE = {};
 var DIAS_SEMANA = ['Lunes','Martes','Miércoles','Jueves','Viernes'];
 
 /* fmt y WA en scope global — app.js los usa */
-function fmt(n) { return (CONFIG.moneda || 'S/ ') + Number(n).toFixed(2); }
+function fmt(n) { return (CONFIG.moneda || '$ ') + Number(n).toFixed(2); }
 
 async function loadConfig() {
   try {

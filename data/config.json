@@ -10,12 +10,12 @@
   "horario": "Lun–Vie · 10 AM – 2 PM",
   "colorPrimario": "#FF6B35",
   "colorBg": "#FFFBF5",
-  "moneda": "S/ ",
+  "moneda": "$ ",
   "año": "2025",
   "catPrecios": {
-    "libre": 13,
-    "dieta": 15,
-    "proteina": 20,
+    "libre": 4,
+    "dieta": 5,
+    "proteina": 6,
     "variado": 0
   },
   "menus": {
@@ -43,10 +43,10 @@
         },
         {
           "id": "l-p3",
-          "name": "Pavo horneado",
-          "desc": "Pechuga de pavo con verduras al horno",
+          "name": "Pabellón light",
+          "desc": "Caraotas negras, carne mechada y tajadas al horno",
           "tags": [
-            "Proteico"
+            "Tradicional"
           ],
           "img": "https://images.unsplash.com/photo-1574484284002-952d92456975?w=200&q=70",
           "price": 0
@@ -73,7 +73,7 @@
         },
         {
           "id": "l-c4",
-          "name": "Quinua",
+          "name": "Caraotas",
           "icon": "🫘",
           "price": 1
         },
@@ -87,7 +87,7 @@
       "jugos": [
         {
           "id": "l-j1",
-          "name": "Maracuyá natural",
+          "name": "Jugo de parchita",
           "icon": "🍋",
           "price": 0
         },
@@ -161,10 +161,10 @@
         },
         {
           "id": "d-p3",
-          "name": "Res a la criolla",
-          "desc": "Carne magra con sofrito suave",
+          "name": "Pollo guisado criollo",
+          "desc": "Pollo en sofrito venezolano con papas y aliños",
           "tags": [
-            "Sabroso"
+            "Criollo"
           ],
           "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&q=70",
           "price": 0
@@ -179,13 +179,13 @@
         },
         {
           "id": "d-c2",
-          "name": "Papa sancochada",
+          "name": "Yuca hervida",
           "icon": "🥔",
           "price": 0
         },
         {
           "id": "d-c3",
-          "name": "Menestra",
+          "name": "Caraotas negras",
           "icon": "🫘",
           "price": 0
         },
@@ -211,8 +211,8 @@
         },
         {
           "id": "d-j2",
-          "name": "Chicha morada",
-          "icon": "🍇",
+          "name": "Papelón con limón",
+          "icon": "🍋‍🟩",
           "price": 0
         },
         {
@@ -223,7 +223,7 @@
         },
         {
           "id": "d-j4",
-          "name": "Emoliente",
+          "name": "Jugo de tamarindo",
           "icon": "🌿",
           "price": 0
         },
@@ -237,14 +237,14 @@
       "postres": [
         {
           "id": "d-pos1",
-          "name": "Mazamorra light",
+          "name": "Bienmesabe light",
           "icon": "🍮",
           "price": 0
         },
         {
           "id": "d-pos2",
-          "name": "Arroz con leche",
-          "icon": "🍚",
+          "name": "Quesillo",
+          "icon": "🍮",
           "price": 0
         },
         {
@@ -259,8 +259,8 @@
       "principales": [
         {
           "id": "p-p1",
-          "name": "Lomo saltado",
-          "desc": "Lomo de res con verduras y arroz",
+          "name": "Carne mechada",
+          "desc": "Res desmechada con sofrito criollo y pimientos",
           "tags": [
             "Energético"
           ],
@@ -297,8 +297,8 @@
         },
         {
           "id": "p-c2",
-          "name": "Camote sancochado",
-          "icon": "🍠",
+          "name": "Plátano maduro",
+          "icon": "🍌",
           "price": 0
         },
         {
@@ -341,7 +341,7 @@
         },
         {
           "id": "p-j4",
-          "name": "Emoliente proteico",
+          "name": "Jugo de guayaba",
           "icon": "🌿",
           "price": 0
         },

@@ -7,39 +7,34 @@
   /* Si ya está instalada no mostrar nada */
   if (isStandalone) return;
 
-  const dismissedKey = 'pwa-dismissed';
-
+  /* iOS: siempre mostrar el hint al cargar (no se puede instalar desde JS) */
   if (isIos) {
-    /* iOS: mostrar hint si no fue descartado antes */
-    if (!sessionStorage.getItem(dismissedKey)) {
-      setTimeout(() => {
-        document.getElementById('ios-hint-overlay')?.classList.add('show');
-      }, 3000);
-    }
-  } else {
-    /* Android / Chrome: esperar beforeinstallprompt */
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', e => {
-      e.preventDefault();
-      deferredPrompt = e;
-      if (!sessionStorage.getItem(dismissedKey)) {
-        document.getElementById('pwa-banner')?.classList.add('visible');
-      }
-    });
-
-    document.getElementById('pwa-install-btn')?.addEventListener('click', async () => {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      deferredPrompt = null;
-      document.getElementById('pwa-banner')?.classList.remove('visible');
-    });
-
-    document.getElementById('pwa-dismiss-btn')?.addEventListener('click', () => {
-      sessionStorage.setItem(dismissedKey, '1');
-      document.getElementById('pwa-banner')?.classList.remove('visible');
-    });
+    setTimeout(() => {
+      document.getElementById('ios-hint-overlay')?.classList.add('show');
+    }, 2000);
+    return;
   }
+
+  /* Android / Chrome: mostrar topbar siempre que el navegador permita instalar */
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById('pwa-banner')?.classList.add('visible');
+  });
+
+  document.getElementById('pwa-install-btn')?.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    document.getElementById('pwa-banner')?.classList.remove('visible');
+  });
+
+  /* X cierra solo por esta sesión — al volver aparece de nuevo */
+  document.getElementById('pwa-dismiss-btn')?.addEventListener('click', () => {
+    document.getElementById('pwa-banner')?.classList.remove('visible');
+  });
 })();
 
 function closeIosHint() {

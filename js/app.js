@@ -909,7 +909,7 @@ function toggleMapa() {
   wrap.style.display = mapaVisible ? 'block' : 'none';
   if (mapaVisible && !map) {
     setTimeout(() => {
-      map = L.map('map').setView([-12.0464, -77.0428], 13); // Lima por defecto
+      map = L.map('map').setView([10.4806, -66.9036], 13); // Caracas por defecto
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap', maxZoom: 19
       }).addTo(map);

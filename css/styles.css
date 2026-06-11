@@ -628,32 +628,28 @@ body { padding-bottom: 76px; }
 
 /* cat-grid es 1 col, no necesita override */
 /* ── PWA BANNER (Android) ── */
-.pwa-banner{
-  display:none;position:fixed;bottom:0;left:0;right:0;z-index:9997;
-  background:var(--white);border-top:1.5px solid var(--borde2);
-  padding:14px 20px calc(14px + env(safe-area-inset-bottom));
-  align-items:center;gap:14px;
-  box-shadow:0 -4px 24px rgba(255,107,53,.12);
+/* ── PWA TOPBAR (opción A) ── */
+.pwa-topbar{
+  display:none;align-items:center;gap:10px;
+  padding:8px 16px;
+  background:#2C1A0E;
+  position:relative;z-index:9997;
 }
-.pwa-banner.visible{display:flex;}
-.pwa-banner-icon{font-size:2rem;flex-shrink:0;line-height:1;}
-.pwa-banner-body{flex:1;min-width:0;}
-.pwa-banner-title{font-family:var(--fb);font-size:.85rem;font-weight:700;color:var(--txt);}
-.pwa-banner-sub{font-size:.7rem;color:var(--txt3);margin-top:2px;}
-.pwa-install-btn{
-  padding:8px 18px;border-radius:30px;border:none;
+.pwa-topbar.visible{display:flex;}
+.pwa-topbar-icon{font-size:15px;flex-shrink:0;}
+.pwa-topbar-text{flex:1;font-size:11px;color:#FFD4B8;line-height:1.4;}
+.pwa-topbar-install{
+  padding:5px 14px;border-radius:20px;border:none;
   background:var(--naranja);color:#fff;
-  font-family:var(--fb);font-size:.78rem;font-weight:700;
+  font-family:var(--fb);font-size:11px;font-weight:700;
   cursor:pointer;white-space:nowrap;flex-shrink:0;
   transition:background .2s;
 }
-.pwa-install-btn:hover{background:var(--naranja2);}
-.pwa-dismiss-btn{
-  background:none;border:none;font-size:1.2rem;
-  color:var(--txt3);cursor:pointer;padding:4px;flex-shrink:0;
-  transition:color .2s;
+.pwa-topbar-install:hover{background:var(--naranja2);}
+.pwa-topbar-x{
+  background:none;border:none;font-size:14px;
+  color:#FFD4B8;cursor:pointer;padding:2px 4px;flex-shrink:0;
 }
-.pwa-dismiss-btn:hover{color:var(--txt);}
 
 /* ── iOS INSTALL HINT ── */
 .ios-hint-overlay{
